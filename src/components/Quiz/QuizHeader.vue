@@ -1,7 +1,11 @@
 <template>
-    <div>
-        <h2>Quiz Header</h2>
+    <header>
+        <h1>{{state.name}}</h1>
         <p>Welcome to your fitst quiz!</p>
 
-    </div>
+    </header>
 </template>
+
+<script setup>
+import { state } from '@/stores/quizStore';
+</script>
