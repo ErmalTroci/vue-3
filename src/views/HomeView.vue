@@ -1,21 +1,24 @@
 <script setup>
-import { useFlash } from "@/composables/useFlash";
+// import { useFlash } from "@/composables/useFlash";
+import { useStorage } from "@/composables/useStorage";
 
-let { flash } = useFlash();
-// export default {
-//   setup(){
-//     let { flash } = useFlash();
-  
-//     return { flash };
-//   }
-// }
+// let { flash } = useFlash();
+let food = useStorage('food', 'salad');
+let age =  useStorage('age', 10);
 
 </script>
 
 <template>
   <main>
     <p>
-      <button @click="flash('Error', 'It does not Work!', 'error')">Click me</button>
+      
+      Whst is your favorite food? <br />
+      <input type="text" v-model="food">
+    </p>
+    <p>
+      
+      How old are you? <br />
+      <input type="text" v-model="age">
     </p>
   </main>
 </template>
