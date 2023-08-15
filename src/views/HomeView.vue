@@ -1,24 +1,14 @@
 <script setup>
-// import { useFlash } from "@/composables/useFlash";
-import { useStorage } from "@/composables/useStorage";
+import TabbableTextarea from "@/components/TabbableTextarea.vue";
+import { ref } from "vue";
 
-// let { flash } = useFlash();
-let food = useStorage('food', 'salad');
-let age =  useStorage('age', 10);
-
+let comment = ref('test comment'); 
 </script>
 
 <template>
   <main>
-    <p>
-      
-      Whst is your favorite food? <br />
-      <input type="text" v-model="food">
-    </p>
-    <p>
-      
-      How old are you? <br />
-      <input type="text" v-model="age">
-    </p>
+    <form>
+      <TabbableTextarea v-model="comment" style="width: 100%; height: 300px;" />
+    </form>
   </main>
 </template>
