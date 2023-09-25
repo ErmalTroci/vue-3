@@ -5,24 +5,33 @@
 </script>
 
 <template>
-  <div v-if="show" class="modal-mask">
-    <div class="modal-container">
-<!--      <header>-->
-<!--        <slot name="header">-->
-<!--          Default header-->
-<!--        </slot>-->
-<!--      </header>-->
-      <div>
-        <slot>default body</slot>
-      </div>
+  <Transition
+    enter-from-class="opacity-0 scale-150"
+    enter-to-class="opacity-100 scale-100"
+    enter-active-class="transition duration-300 "
+    leave-active-class="transition duration-200"
+    leave-from-class="opacity-100 scale-100"
+    leave-to-class="opacity-0 scale-150"
+  >
+    <div v-if="show" class="modal-mask">
+      <div class="modal-container">
+        <!--      <header>-->
+        <!--        <slot name="header">-->
+        <!--          Default header-->
+        <!--        </slot>-->
+        <!--      </header>-->
+        <div>
+          <slot>default body</slot>
+        </div>
 
-      <footer class="modal-footer">
-        <slot name="footer">
-          <button @click="$emit('close')">Close</button>
-        </slot>
-      </footer>
+        <footer class="modal-footer">
+          <slot name="footer">
+            <button @click="$emit('close')">Close</button>
+          </slot>
+        </footer>
+      </div>
     </div>
-  </div>
+  </Transition>
 </template>
 
 
